@@ -8,12 +8,19 @@
 </head>
 <body>
     <button id="getText">Get Text</button>
+    <div id="output"></div>
 
     <script>
         document.getElementById('getText').addEventListener('click', getText);
 
         function getText(){
-            console.log('Just another update');
+            // fetching data from the sample.txt file
+            fetch('sample.txt')
+            .then((res) => res.text())
+            .then((data) => {
+                // Inserting the data into the into the web page/ Dom
+                document.getElementById('output').innerHTML = data;
+            });
         }
     </script>
 </body>
